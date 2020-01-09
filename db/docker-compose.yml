@@ -1,0 +1,18 @@
+version: '3.4'
+services:
+  mongo-service:
+    restart: "no"
+    image: edmardosreis/mongo-db:1
+    volumes: 
+      - /tmp/db:/data/db
+    ports:
+      - "27017:27017"
+    networks: 
+      - custom-newtwork-tech
+    #build:
+    #  context: ./
+    #  dockerfile: Dockerfile
+    #  network: host
+networks:
+    custom-newtwork-tech:
+        driver: bridge

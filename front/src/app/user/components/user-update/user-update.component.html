@@ -1,0 +1,28 @@
+<section class="crud-container" fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title>Update item</mat-card-title>
+      <form [formGroup]="basicForm" autocomplete="off" novalidate (ngSubmit)="update(basicForm.value)" fxLayout="column wrap"
+        fxLayoutAlign="center center" fxLayoutGap="10px">
+        <mat-card-content>
+  
+          <mat-form-field>
+            <input matInput type="text" placeholder="Users's name" formControlName="name" id="name">
+            <mat-hint align="end">Not more then 50 characters long.</mat-hint>
+            <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+            <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 50 characters</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input matInput type="text" placeholder="User's email" formControlName="email">
+            <mat-hint align="end">Not less 0.</mat-hint>
+            <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+          </mat-form-field>
+  
+        </mat-card-content>
+        <mat-card-actions align="center">
+          <button mat-raised-button color="primary" [disabled]="!basicForm.valid">Update</button>
+          <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </section>

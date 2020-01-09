@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.crud-container {
+    display: flex ;
+    flex-direction: column;
+  }
+.crud-container > * {
+    width: 50%;
+}
+
+.blue-snackbar {
+  color: black;
+  background: #2196F3;
+}
+.green-snackbar {
+  color: black;
+  background: #1DE9B6;
+}
+.red-snackbar {
+  background: #B00020;
+}
+
+.yellow-snackbar {
+  background: rgb(226, 163, 25);
+}

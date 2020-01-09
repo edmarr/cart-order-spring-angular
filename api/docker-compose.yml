@@ -1,0 +1,20 @@
+version: '3.4'
+services:
+  cart-order-service:
+    restart: "no"
+    image: edmarr/cart-order-api:latest
+    volumes:
+      - ../cart-order-api:/api
+      - ~/.m2:/root/.m2      
+    ports:
+      - "8080:8080"
+    command: mvn -f /api/pom.xml clean spring-boot:run
+    networks: 
+      - custom-newtwork-tech
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      network: host
+networks:
+    custom-newtwork-tech:
+        driver: bridge
